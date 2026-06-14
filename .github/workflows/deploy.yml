@@ -1,0 +1,15 @@
+name: Deploy to Render
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Trigger Render Deployment
+        uses: johnbeynon/render-deploy-action@v0.0.8
+        with:
+          hook-url: ${{ secrets.RENDER_DEPLOY_HOOK_URL }}
